@@ -1,10 +1,10 @@
 {
-  "name": "express-hello-world",
+  "name": "radioapi",
   "version": "1.0.0",
-  "description": "Express Hello World on Render",
+  "description": "RadioAPI qith Youtube Functions.",
   "main": "app.js",
-  "repository": "https://github.com/render-examples/express-hello-world",
-  "author": "Render Developers",
+  "repository": "https://github.com/ArticPolarDEV/RadioAPI2",
+  "author": "ArticPolarDEV",
   "license": "MIT",
   "private": false,
   "scripts": {
