@@ -74,6 +74,10 @@ async function getVideoName(videoUrl) {
     }
 }
 
+app.get('/', (req, res) => {
+	res.status(200).send('API Working');
+}
+	
 app.get('/queryplaylist', (req, res) => {
 	const playlistLink = "https://www.youtube.com/playlist?list=" + req.query.id;
 	getPlaylistVideoIds(playlistLink)
