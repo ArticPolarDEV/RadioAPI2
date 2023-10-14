@@ -148,6 +148,29 @@ app.get('/getaudio', async (req, res) => {
 		res.status(500).send('Error retrieving audio URL');
 	}
 });
+app.get('/getaudio2', async (req, res) => {
+  const videoLink = "https://www.youtube.com/watch?v=" + req.query.id;
+
+  try {
+    const audioStream = ytdl(videoLink, {
+      filter: 'audioonly',
+      quality: 'highestaudio',
+    });
+
+    res.set('content-type', 'audio/mpeg');
+    res.set('content-disposition', 'attachment; filename=audio.mp3');
+
+    audioStream.pipe(res);
+  } catch (error) {
+    console.error('Error:', error.message);
+    res.status(500).send('Error retrieving audio');
+  }
+});
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
 
 app.listen(port, () => {
 	console.log(`Server listening on port ${port}`);
